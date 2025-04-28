@@ -1,7 +1,7 @@
-array = [3,6,8,1,8]
-minval = array[0]
+def my_car(**car):
+    print(f"My car is {car["fav"]}")
 
-for i in range(array):
-    if i < minval:
-        minval = i
-print(minval)
+my_car(fav = 'BMW', fav1 = 'Mercedes')
+
+
+

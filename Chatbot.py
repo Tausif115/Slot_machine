@@ -1,8 +1,17 @@
-def initials(full_name):
-    first_letter = []
-    for i in full_name.split():
-        first_letter.append(i[0].upper())
-    return '.'.join(first_letter)
-    
-print(initials("Wazih Tausif"))
-    
+from PyPDF2 import PdfMerger
+import os
+
+input_directory = "E:\Combined"
+output_file = "combined_output.pdf"
+pdf_files = [f for f in os.listdir(input_directory) if f.endswith(".pdf")]
+
+# Create a PdfMerger object
+merger = PdfMerger()
+
+# Append each PDF to the merger
+for file_name in pdf_files:
+    merger.append(os.path.join(input_directory, file_name))
+
+# Write the combined PDF to a file
+merger.write(output_file)
+merger.close()
